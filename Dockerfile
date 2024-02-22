@@ -56,11 +56,11 @@ COPY ./docker-entrypoint.sh /docker-entrypoint.sh
 RUN chmod +x docker-entrypoint.sh
 
 ##
-## Define o ponto de entrada como o script docker-entrypoint.sh
-##
-ENTRYPOINT ["/docker-entrypoint.sh"]
-
-##
 ## Expor a porta
 ##
 EXPOSE 5000
+
+##
+## Define o ponto de entrada como o script docker-entrypoint.sh
+##
+CMD  pytest

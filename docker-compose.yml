@@ -7,7 +7,6 @@ networks:
 services:
   dockerizing-pytest:
     build:
-      dockerfile: .
       context: .
     image: joapedu/dockerizing-pytest
     ports:
