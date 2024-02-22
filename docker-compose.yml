@@ -1,0 +1,25 @@
+version: '3.9'
+
+networks:
+  backend:
+    driver: bridge
+
+services:
+  dockerizing-pytest:
+    build:
+      dockerfile: .
+      context: .
+    image: joapedu/dockerizing-pytest
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/code
+    environment:
+      - PYTHONUNBUFFERED=1
+      - TZ=America/Fortaleza
+
+    # O comando será definido pelo script de entrada (docker-entrypoint.sh)
+    command: ""
+
+    networks:
+      - backend
