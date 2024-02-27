@@ -46,21 +46,6 @@ COPY --from=builder /etc/timezone /etc/timezone
 COPY --from=builder /code /code
 
 ##
-## Copia o script docker-entrypoint.sh
-##
-COPY ./docker-entrypoint.sh /docker-entrypoint.sh
-
-##
-## Dá permissão [de execução] ao script
-##
-RUN chmod +x docker-entrypoint.sh
-
-##
 ## Expor a porta
 ##
 EXPOSE 5000
-
-##
-## Define o ponto de entrada como o script docker-entrypoint.sh
-##
-CMD  pytest
