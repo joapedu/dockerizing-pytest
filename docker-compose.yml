@@ -8,7 +8,7 @@ services:
   dockerizing-pytest:
     build:
       context: .
-    image: joapedu/dockerizing-pytest
+      dockerfile: ./Dockerfile
     ports:
       - "5000:5000"
     volumes:
@@ -16,9 +16,7 @@ services:
     environment:
       - PYTHONUNBUFFERED=1
       - TZ=America/Fortaleza
-
-    # O comando será definido pelo script de entrada (docker-entrypoint.sh)
-    command: ""
+    command: ["tail", "-f", "/dev/null"]
 
     networks:
       - backend
